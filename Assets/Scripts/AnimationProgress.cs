@@ -13,6 +13,6 @@ public class AnimationProgress : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        float add ;
     }
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - EndGoal
   - Target
+  - Dimond
   layers:
   - Default
   - TransparentFX

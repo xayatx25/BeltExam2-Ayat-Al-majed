@@ -6,7 +6,7 @@ public class doorPass : MonoBehaviour
 {
     public Animator[] animLR;
     public bool IsPass;
-   
+    public bool IsPanleShow;
    
     public GameObject passPanle;
    
@@ -20,7 +20,7 @@ public class doorPass : MonoBehaviour
     {
         animLR[0].SetBool("opening" , true);
         animLR[1].SetBool("opening" , true);
-        passPanle.SetActive(false);
+        passPanle.SetActive(false); Debug.Log("pass is TRUE X22");
     }
 
       void Close_()
@@ -40,11 +40,13 @@ public class doorPass : MonoBehaviour
             if(!IsPass)
             {
                passPanle.SetActive(true);
+               IsPanleShow = true;
             }
             else
             {
                 //open door
                 Open_();
+                IsPanleShow = false;
             }
         }
     }
@@ -57,6 +59,7 @@ public class doorPass : MonoBehaviour
           
           passPanle.SetActive(false);
           Close_();
+          IsPanleShow = false;
            
         }
     }

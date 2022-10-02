@@ -9,16 +9,21 @@ public class CameraController : MonoBehaviour
     private float clampAngle = 85f;
     private float verticalRotation;
     private float horizontalRotation;
+
+    doorPass dp;
     // Start is called before the first frame update
    private  void Start()
     {
         this.verticalRotation = this.transform.localEulerAngles.x;
         this.horizontalRotation = this.transform.eulerAngles.y;
-    }
 
+         dp = FindObjectOfType<doorPass>().GetComponent<doorPass>();
+    }
+   
     // Update is called once per frame
    private void Update()
     {
+        if(!dp.IsPanleShow)
         Look();
         Debug.DrawRay(this.transform.position, this.transform.forward * 2, Color.red);
     }
@@ -26,7 +31,7 @@ public class CameraController : MonoBehaviour
     {
         float mouseVertical = Input.GetAxis("Mouse Y");
         float mouseHorizontal = Input.GetAxis("Mouse X");
-        this.verticalRotation += mouseVertical * this.sensitivity * Time.deltaTime;
+        this.verticalRotation -= mouseVertical * this.sensitivity * Time.deltaTime;
         this.horizontalRotation += mouseHorizontal * this.sensitivity * Time.deltaTime;
         this.verticalRotation = Mathf.Clamp(this.verticalRotation, -this.clampAngle, this.clampAngle);
         this.transform.localRotation = Quaternion.Euler(this.verticalRotation, 0f, 0f);

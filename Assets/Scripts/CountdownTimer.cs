@@ -21,11 +21,19 @@ public class CountdownTimer : MonoBehaviour
     {
         timer -= Time.deltaTime;
         countdownText.text = timer.ToString("0");
-        Debug.Log($"timer is {timer}, and time since last frame is {Time.deltaTime}");
+       // Debug.Log($"timer is {timer}, and time since last frame is {Time.deltaTime}");
         if (timer <= 0)
         {
             timer = 0;
             SceneManager.LoadScene(LoseScene);
         }
+    }
+
+    public void TEST()
+    {
+        Debug.Log("tessssssssssssssssssssssst");
+        
+            
+        
     }
 }

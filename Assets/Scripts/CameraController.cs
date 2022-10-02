@@ -26,7 +26,7 @@ public class CameraController : MonoBehaviour
     {
         float mouseVertical = Input.GetAxis("Mouse Y");
         float mouseHorizontal = Input.GetAxis("Mouse X");
-        this.verticalRotation += mouseVertical * this.sensitivity * Time.deltaTime;
+        this.verticalRotation -= mouseVertical * this.sensitivity * Time.deltaTime;
         this.horizontalRotation += mouseHorizontal * this.sensitivity * Time.deltaTime;
         this.verticalRotation = Mathf.Clamp(this.verticalRotation, -this.clampAngle, this.clampAngle);
         this.transform.localRotation = Quaternion.Euler(this.verticalRotation, 0f, 0f);

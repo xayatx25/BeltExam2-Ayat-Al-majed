@@ -14,7 +14,7 @@ public class Healthbar : MonoBehaviour
 
     void Update()
     {
-        healthBar.fillAmount = healthAmount;
+        //healthBar.fillAmount = healthAmount;
         if (healthAmount <= 0)
             Die();
     }

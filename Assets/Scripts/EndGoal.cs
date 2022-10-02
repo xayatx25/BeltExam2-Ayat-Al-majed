@@ -5,15 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class EndGoal : MonoBehaviour
 {
+   
+    public GameObject particle;
+    public int TimeToWin;
+
     [SerializeField] private string WinScene;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            SceneManager.LoadScene(WinScene);
-
-            Debug.Log("You are a winner!");
+           Invoke( "Winner" , TimeToWin);
+           particle.SetActive(true);
         }
+    }
+
+    void Winner()
+    {
+        SceneManager.LoadScene(WinScene);
+        Debug.Log("You are a winner!");
     }
 }
 
